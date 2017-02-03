@@ -427,6 +427,7 @@ define elasticsearch::instance(
     file { "${instance_configdir}/scripts":
       ensure => 'link',
       target => "${elasticsearch::params::homedir}/scripts",
+      before  => Elasticsearch::Service[$name],
     }
 
     if $security_plugin != undef {
