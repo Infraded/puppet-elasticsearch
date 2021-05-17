@@ -1,4 +1,4 @@
-status = <%= @logging_level.downcase %> # Default: error
+status = <%= @logging_level.downcase %>
 
 appender.console.type = Console
 appender.console.name = console
@@ -22,11 +22,11 @@ appender.rolling.strategy.action.type = Delete
 appender.rolling.strategy.action.basepath = ${sys:es.logs.base_path}
 appender.rolling.strategy.action.condition.type = IfFileName
 appender.rolling.strategy.action.condition.glob = ${sys:es.logs.cluster_name}-*
-appender.rolling.strategy.action.condition.nested_condition.type = IfLastModified 
-appender.rolling.strategy.action.condition.nested_condition.age = <%= @rolling_file_max_backup_index %>D
+appender.rolling.strategy.action.condition.nested_condition.type = IfLastModified
+appender.rolling.strategy.action.condition.nested_condition.age = <%= @rolling_file_max_backup_index %>d
 ################################################
 
-rootLogger.level = <%= @logging_level.downcase %> # Default: info
+rootLogger.level = <%= @logging_level.downcase %>
 rootLogger.appenderRef.console.ref = console
 rootLogger.appenderRef.rolling.ref = rolling
 
