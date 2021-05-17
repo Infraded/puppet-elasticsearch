@@ -18,7 +18,6 @@ appender.rolling.policies.time.type = TimeBasedTriggeringPolicy
 appender.rolling.policies.time.interval = 1
 appender.rolling.policies.time.modulate = true
 appender.rolling.strategy.type = DefaultRolloverStrategy
-appender.rolling.strategy.fileIndex = nomax
 appender.rolling.strategy.action.type = Delete
 appender.rolling.strategy.action.basepath = ${sys:es.logs.base_path}
 appender.rolling.strategy.action.condition.type = IfFileName
@@ -37,8 +36,6 @@ appender.deprecation_rolling.name = deprecation_rolling
 appender.deprecation_rolling.fileName = ${sys:es.logs.base_path}${sys:file.separator}${sys:es.logs.cluster_name}_deprecation.json
 appender.deprecation_rolling.layout.type = ESJsonLayout
 appender.deprecation_rolling.layout.type_name = deprecation
-appender.deprecation_rolling.layout.esmessagefields=x-opaque-id
-appender.deprecation_rolling.filter.rate_limit.type = RateLimitingFilter
 
 appender.deprecation_rolling.filePattern = ${sys:es.logs.base_path}${sys:file.separator}${sys:es.logs.cluster_name}_deprecation-%i.json.gz
 appender.deprecation_rolling.policies.type = Policies
@@ -60,7 +57,6 @@ appender.index_search_slowlog_rolling.fileName = ${sys:es.logs.base_path}${sys:f
   .cluster_name}_index_search_slowlog.json
 appender.index_search_slowlog_rolling.layout.type = ESJsonLayout
 appender.index_search_slowlog_rolling.layout.type_name = index_search_slowlog
-appender.index_search_slowlog_rolling.layout.esmessagefields=message,took,took_millis,total_hits,types,stats,search_type,total_shards,source,id
 
 appender.index_search_slowlog_rolling.filePattern = ${sys:es.logs.base_path}${sys:file.separator}${sys:es.logs\
   .cluster_name}_index_search_slowlog-%i.json.gz
@@ -82,7 +78,6 @@ appender.index_indexing_slowlog_rolling.fileName = ${sys:es.logs.base_path}${sys
   _index_indexing_slowlog.json
 appender.index_indexing_slowlog_rolling.layout.type = ESJsonLayout
 appender.index_indexing_slowlog_rolling.layout.type_name = index_indexing_slowlog
-appender.index_indexing_slowlog_rolling.layout.esmessagefields=message,took,took_millis,doc_type,id,routing,source
 
 appender.index_indexing_slowlog_rolling.filePattern = ${sys:es.logs.base_path}${sys:file.separator}${sys:es.logs.cluster_name}\
   _index_indexing_slowlog-%i.json.gz
